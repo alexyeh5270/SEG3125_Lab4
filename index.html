@@ -3,44 +3,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Alex Cycle Shop</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap 5 (required for Lab 4) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons (optional but helpful for affordance) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <style>
+    /* Small, consistent styling (still Bootstrap-first) */
+    :root { --acs-radius: 1rem; }
+    body { background: #f8f9fa; }
+    .card, .btn, .form-control, .form-select { border-radius: var(--acs-radius); }
+    .shadow-soft { box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.08); }
+    .service-card { cursor: pointer; }
+    .service-card:hover { transform: translateY(-2px); transition: .15s ease; }
+
+    /* Constraint: "Next step" only appears when ready (no JS, modern browsers support :has()) */
+    .next-btn { display: none; }
+    .step1:has(input[name="service"]:checked) .next-btn { display: inline-flex; }
+    .step2:has(#date:valid):has(#time:valid) .next-btn { display: inline-flex; }
+
+    /* Summary display (no JS): shows which service is selected */
+    .svc-line { display: none; }
+    #svc-basic:checked  ~ #summary .svc-basic  { display: block; }
+    #svc-full:checked   ~ #summary .svc-full   { display: block; }
+    #svc-flat:checked   ~ #summary .svc-flat   { display: block; }
+    #svc-brakes:checked ~ #summary .svc-brakes { display: block; }
+  </style>
 </head>
+
 <body>
 
+  <!-- NAVBAR (Visibility: where am I + primary action) -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+        <span class="rounded-circle bg-dark text-white d-inline-flex align-items-center justify-content-center"
+              style="width:2rem;height:2rem;">
+          <i class="bi bi-bicycle"></i>
+        </span>
+        <span class="fw-semibold">Alex Cycle Shop</span>
+      </a>
 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#booking">Book</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Experts</a></li>
+          <li class="nav-item">
+            <a class="btn btn-primary ms-lg-2" href="#booking">
+              <i class="bi bi-calendar2-check me-1"></i>Book service
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<!-- Referenced: https://www.w3schools.com/bootstrap/bootstrap_theme_company.asp -->
-<div class="container-fluid">
-  <h2>Services</h2>
-  <p>Service paragraph or sentence here.</p>
-  
-  <div class="row">
-    <div class = "col-sm-4">
-        <h3>Service1</h5>
+  <!-- HERO (Visibility + mapping + quick contact) -->
+  <header id="top" class="py-4">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-7">
+          <div class="p-4 p-lg-5 bg-white rounded-4 shadow-soft">
+            <p class="text-uppercase small text-secondary mb-2">Repairs • Tune-ups • Safety Checks</p>
+            <h1 class="display-6 fw-semibold mb-3">Book a bike service in under 2 minutes.</h1>
+            <p class="text-secondary mb-4">
+              Transparent prices. Clear steps. Skilled mechanics. Bring your bike in and leave safer.
+            </p>
+
+            <div class="d-flex flex-column flex-sm-row gap-2">
+              <a class="btn btn-primary btn-lg" href="#booking">
+                <i class="bi bi-wrench-adjustable-circle me-2"></i>Start booking
+              </a>
+              <a class="btn btn-outline-secondary btn-lg" href="#services">View services & prices</a>
+            </div>
+
+            <hr class="my-4" />
+
+            <!-- Where to go (Visibility) -->
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <div class="d-flex gap-2">
+                  <i class="bi bi-geo-alt text-secondary"></i>
+                  <div>
+                    <div class="fw-semibold">Address</div>
+                    <div class="text-secondary small">123 Main St, Ottawa, ON</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-flex gap-2">
+                  <i class="bi bi-clock text-secondary"></i>
+                  <div>
+                    <div class="fw-semibold">Hours</div>
+                    <div class="text-secondary small">Mon–Sat 10:00–18:00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-flex gap-2">
+                  <i class="bi bi-telephone text-secondary"></i>
+                  <div>
+                    <div class="fw-semibold">Contact</div>
+                    <div class="text-secondary small">(613) 555-0123</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="bg-white rounded-4 shadow-soft overflow-hidden">
+            <img class="w-100"
+                 src="https://placehold.co/900x600?text=Replace+with+shop+photo"
+                 alt="Bike service photo (replace with your own)" />
+          </div>
+        </div>
+      </div>
     </div>
-    <div class = "col-sm-4">
-        <h3>Service2</h5>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pb-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- LEFT COLUMN: services + booking steps -->
+        <div class="col-12 col-lg-8">
+
+          <!-- Referenced: https://www.w3schools.com/bootstrap/bootstrap_theme_company.asp -->
+          <!-- SERVICES (Visibility + mapping + prices) -->
+          <section id="services" class="mb-4 step1">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h2 class="h4 mb-0">Services & Prices</h2>
+              <span class="badge text-bg-secondary">
+                <i class="bi bi-eye me-1"></i>Prices upfront
+              </span>
+            </div>
+            <p class="text-secondary">
+              Select one service to start booking. Photos indicate what each service covers.
+            </p>
+
+            <!-- Hidden radios (affordance: cards are clickable; mapping: each card has image) -->
+            <input class="btn-check" type="radio" name="service" id="svc-basic" autocomplete="off" required>
+            <input class="btn-check" type="radio" name="service" id="svc-full" autocomplete="off">
+            <input class="btn-check" type="radio" name="service" id="svc-flat" autocomplete="off">
+            <input class="btn-check" type="radio" name="service" id="svc-brakes" autocomplete="off">
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label class="card service-card shadow-soft h-100" for="svc-basic">
+                  <img class="card-img-top"
+                       src="https://placehold.co/900x540?text=Basic+Tune-Up+(gears+%2B+brakes)"
+                       alt="Basic tune-up mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Basic Tune-Up</h3>
+                        <p class="text-secondary small mb-2">Gears + brakes adjustment, safety check.</p>
+                      </div>
+                      <span class="badge text-bg-primary">$79</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~60 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="card service-card shadow-soft h-100" for="svc-full">
+                  <img class="card-img-top"
+                       src="https://placehold.co/900x540?text=Full+Tune-Up+(deep+clean)"
+                       alt="Full tune-up mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Full Tune-Up</h3>
+                        <p class="text-secondary small mb-2">Deep clean + drivetrain care + adjustments.</p>
+                      </div>
+                      <span class="badge text-bg-primary">$149</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~120 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="card service-card shadow-soft h-100" for="svc-flat">
+                  <img class="card-img-top"
+                       src="https://placehold.co/900x540?text=Flat+Repair+(tire+%2B+tube)"
+                       alt="Flat repair mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Flat Repair</h3>
+                        <p class="text-secondary small mb-2">Tube/patch + tire inspection.</p>
+                      </div>
+                      <span class="badge text-bg-primary">$25+</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="card service-card shadow-soft h-100" for="svc-brakes">
+                  <img class="card-img-top"
+                       src="https://placehold.co/900x540?text=Brake+Service+(pads+%2B+adjust)"
+                       alt="Brake service mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Brake Service</h3>
+                        <p class="text-secondary small mb-2">Adjust pads/cables, braking test.</p>
+                      </div>
+                      <span class="badge text-bg-primary">$35+</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30–45 min</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Constraint: show Next only after a service is selected -->
+            <div class="mt-3 d-flex justify-content-end">
+              <a class="btn btn-primary next-btn" href="#booking">
+                Next: pick date & time <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </section>
+
+          <!-- BOOKING (single-page, vertical) -->
+          <section id="booking">
+            <h2 class="h4 mb-2">Book your appointment</h2>
+            <p class="text-secondary mb-3">Complete the steps below. Your summary is shown on the right.</p>
+
+            <!-- Step 2: date/time -->
+            <div class="card shadow-soft mb-3 step2">
+              <div class="card-body">
+                <h3 class="h5 mb-3">2) Choose date & time</h3>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="date">
+                      <i class="bi bi-calendar3 me-1"></i>Date
+                    </label>
+                    <input class="form-control" id="date" type="date" required />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="time">
+                      <i class="bi bi-clock me-1"></i>Time
+                    </label>
+                    <input class="form-control" id="time" type="time" required />
+                  </div>
+                </div>
+
+                <!-- Constraint: show Next only after date & time are valid -->
+                <div class="mt-3 d-flex justify-content-end">
+                  <a class="btn btn-primary next-btn" href="#contact">
+                    Next: your details <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: contact info -->
+            <div id="contact" class="card shadow-soft">
+              <div class="card-body">
+                <h3 class="h5 mb-3">3) Your contact info</h3>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="name">
+                      <i class="bi bi-person me-1"></i>Full name
+                    </label>
+                    <input class="form-control" id="name" type="text" placeholder="Alex Chen" required />
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="phone">
+                      <i class="bi bi-telephone me-1"></i>Phone
+                    </label>
+                    <input class="form-control" id="phone" type="tel" placeholder="(613) 555-0123" required />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="email">
+                      <i class="bi bi-envelope me-1"></i>Email
+                    </label>
+                    <input class="form-control" id="email" type="email" placeholder="alex@example.com" required />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="notes">
+                      <i class="bi bi-chat-left-text me-1"></i>Notes (optional)
+                    </label>
+                    <textarea class="form-control" id="notes" rows="3"
+                              placeholder="Bike model, issue details, etc."></textarea>
+                  </div>
+                </div>
+
+                <!-- Primary action visually dominant -->
+                <div class="mt-4">
+                  <button class="btn btn-primary btn-lg w-100 shadow-soft"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#confirmModal">
+                    <i class="bi bi-check2-circle me-2"></i>Confirm booking
+                  </button>
+                  <p class="small text-secondary mt-2 mb-0">
+                    This shows a confirmation state (modal). Next lab you can bind real values with Vanilla JS.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Experts (Visibility: who are the experts) -->
+          <section id="team" class="mt-5">
+            <h2 class="h4 mb-2">Our experts</h2>
+            <p class="text-secondary mb-3">Meet the mechanics who’ll work on your bike.</p>
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <div class="card shadow-soft h-100">
+                  <div class="card-body d-flex gap-3">
+                    <img class="rounded-circle" width="64" height="64"
+                         src="https://placehold.co/128x128?text=A"
+                         alt="Mechanic avatar" />
+                    <div>
+                      <div class="fw-semibold">Alex Nguyen</div>
+                      <div class="text-secondary small">Lead Mechanic • Drivetrain & tune-ups</div>
+                      <div class="small mt-2"><i class="bi bi-award me-1"></i>5+ years experience</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="card shadow-soft h-100">
+                  <div class="card-body d-flex gap-3">
+                    <img class="rounded-circle" width="64" height="64"
+                         src="https://placehold.co/128x128?text=M"
+                         alt="Mechanic avatar" />
+                    <div>
+                      <div class="fw-semibold">Maya Patel</div>
+                      <div class="text-secondary small">Service Specialist • Brakes & wheels</div>
+                      <div class="small mt-2"><i class="bi bi-lightning-charge me-1"></i>Fast diagnostics</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN: summary (Visibility: “You chose…”) -->
+        <div class="col-12 col-lg-4">
+          <div id="summary" class="card shadow-soft sticky-lg-top" style="top: 5.5rem;">
+            <div class="card-body">
+              <h2 class="h5 mb-3"><i class="bi bi-receipt me-1"></i>Your booking summary</h2>
+
+              <div class="mb-2 fw-semibold">Service</div>
+              <div class="text-secondary small mb-3">
+                <div class="svc-line svc-basic"><i class="bi bi-check2 me-1"></i>Basic Tune-Up — $79</div>
+                <div class="svc-line svc-full"><i class="bi bi-check2 me-1"></i>Full Tune-Up — $149</div>
+                <div class="svc-line svc-flat"><i class="bi bi-check2 me-1"></i>Flat Repair — $25+</div>
+                <div class="svc-line svc-brakes"><i class="bi bi-check2 me-1"></i>Brake Service — $35+</div>
+                <div class="text-secondary"><i class="bi bi-dash me-1"></i>Select a service above</div>
+              </div>
+
+              <div class="mb-2 fw-semibold">Schedule</div>
+              <div class="text-secondary small">
+                <div><i class="bi bi-dash me-1"></i>Date/time will be bound with JS next lab.</div>
+              </div>
+
+              <hr class="my-3" />
+              <div class="small text-secondary">
+                <i class="bi bi-shield-check me-1"></i>Transparent pricing • No add-ons without approval
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer (repeat contact for visibility/consistency) -->
+      <footer class="mt-5 pt-4 border-top text-secondary small">
+        <div class="row g-2">
+          <div class="col-12 col-md">
+            <div class="fw-semibold text-dark">Alex Cycle Shop</div>
+            123 Main St, Ottawa, ON • Mon–Sat 10:00–18:00
+          </div>
+          <div class="col-12 col-md-auto">
+            <i class="bi bi-telephone me-1"></i>(613) 555-0123
+            <span class="mx-2">•</span>
+            <i class="bi bi-envelope me-1"></i>alex@cycle.shop
+          </div>
+        </div>
+      </footer>
     </div>
-    <div class = "col-sm-4">
-        <h3>Service3</h5>
-    </div>
-    <div class = "col-sm-4">
-        <h3>Service4</h5>
-    </div>
-    <div class = "col-sm-4">
-        <h3>Service5</h5>
-    </div>
-    <div class = "col-sm-4">
-        <h3>Service6</h5>
+  </main>
+
+  <!-- Confirmation state (Feedback) -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title h5">
+            <i class="bi bi-check2-circle text-success me-2"></i>Booking received
+          </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-2">We’ve recorded your request. You’ll receive a confirmation message shortly.</p>
+          <div class="alert alert-light border mb-0">
+            Next lab: validate inputs + display date/time/service here using Vanilla JS.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Done</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
