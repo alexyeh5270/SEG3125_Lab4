@@ -1,0 +1,10 @@
+
+/* Sticky navbar anchor offsets */
+html { scroll-padding-top: 6.5rem; }
+section, header, #summary, #admin, #experts, #about { scroll-margin-top: 6.5rem; }
+
+/* needed so "absolute parking" works */
+#sidebarCol { position: relative; }
+
+/* spacer default */
+#sidebarSpacer { height: 0; }
