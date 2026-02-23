@@ -1,10 +1,60 @@
+:root { --acs-radius: 1rem; }
 
-/* Sticky navbar anchor offsets */
+body { background: #f8f9fa; }
+
+.card, .btn, .form-control, .form-select {
+  border-radius: var(--acs-radius);
+}
+
+.shadow-soft { box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.08); }
+
+.service-card { cursor: pointer; }
+.service-card:hover { transform: translateY(-2px); transition: .15s ease; }
+
+/* Mobile spacing improvements */
+main { padding-bottom: 3rem; }
+.section-pad { padding: 1rem 0; }
+@media (min-width: 992px) { .section-pad { padding: 1.25rem 0; } }
+
+/* Anchor offsets for sticky navbar */
 html { scroll-padding-top: 6.5rem; }
 section, header, #summary, #admin, #experts, #about { scroll-margin-top: 6.5rem; }
 
-/* needed so "absolute parking" works */
-#sidebarCol { position: relative; }
+/* Service card selection affordance */
+.service-option {
+  border: 2px solid transparent;
+  transition: .15s ease;
+  overflow: hidden;
+}
+.btn-check:focus + .service-option {
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}
+.btn-check:checked + .service-option {
+  border-color: #0d6efd; /* Bootstrap primary */
+  box-shadow: 0 .75rem 1.5rem rgba(13,110,253,.15);
+}
+.selected-badge { display: none; }
+.btn-check:checked + .service-option .selected-badge { display: inline-flex; }
 
-/* spacer default */
-#sidebarSpacer { height: 0; }
+/* Make images less tall on mobile */
+.card-img-top {
+  max-height: 160px;
+  object-fit: cover;
+}
+@media (min-width: 992px) {
+  .card-img-top { max-height: 190px; }
+}
+
+/* Summary always visible on desktop */
+.summary-fixed-lg { position: static; }
+
+@media (min-width: 992px) {
+  .summary-fixed-lg{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;                 /* stays on screen while scrolling */
+    width: clamp(280px, 32vw, 360px);
+    z-index: 1020;
+  }
+}

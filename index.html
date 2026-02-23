@@ -4,7 +4,6 @@
   <title>Alex Cycle Shop</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles/style.css" />
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -13,19 +12,14 @@
 
   <!-- Your CSS LAST -->
   <link rel="stylesheet" href="styles/style.css" />
-
-<link rel="stylesheet" href="styles/style.css" />
-<script src="main.js" defer></script>
 </head>
+
 <body>
-
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
     <div class="container py-2">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
-        <span class="rounded-circle bg-dark text-white d-inline-flex align-items-center justify-content-center"
-              style="width:2rem;height:2rem;">
+        <span class="rounded-circle bg-dark text-white d-inline-flex align-items-center justify-content-center" style="width:2rem;height:2rem;">
           <i class="bi bi-bicycle"></i>
         </span>
         <span class="fw-semibold">Alex Cycle Shop</span>
@@ -37,11 +31,11 @@
 
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experts">Experts</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#booking">Book</a></li>
-          <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experts">Experts</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#-sticky">Summary</a></li>
           <li class="nav-item"><a class="nav-link" href="#admin">Admin</a></li>
           <li class="nav-item">
             <a class="btn btn-primary ms-lg-2" href="#booking">
@@ -109,217 +103,43 @@
 
         <div class="col-12 col-lg-5">
           <div class="bg-white rounded-4 shadow-soft overflow-hidden">
-            <img class="w-100" src="assets/Untitled design.png" alt="Bike service photo" />
+            <img class="w-100" src="assets/Untitled%20design.png" alt="Bike service photo" />
           </div>
         </div>
       </div>
     </div>
   </header>
 
-<main class="pb-5">
-  <div class="container">
+  <main class="pb-5">
+    <div class="container">
 
-    <!-- Row 1: booking flow (left) + sidebar cards (right) -->
-    <div class="row g-4">
+      <div class="row g-4 align-items-start">
 
-      <!-- LEFT -->
-      <div class="col-12 col-lg-8">
+        <!-- RIGHT (About + Experts fill space; Summary stays visible on desktop) -->
+        <div class="col-12 col-lg-4 order-1 order-lg-2">
 
-        <!-- SERVICES -->
-        <section id="services" class="mb-4">
-          <div class="d-flex align-items-center justify-content-between mb-2">
-            <h2 class="h4 mb-0">Services & Prices</h2>
-            <span class="badge text-bg-secondary"><i class="bi bi-eye me-1"></i>Prices upfront</span>
-          </div>
-          <p class="text-secondary">Select one service to start booking.</p>
-
-          <input class="btn-check" type="radio" name="service" id="svc-basic" autocomplete="off" required>
-          <input class="btn-check" type="radio" name="service" id="svc-full" autocomplete="off">
-          <input class="btn-check" type="radio" name="service" id="svc-flat" autocomplete="off">
-          <input class="btn-check" type="radio" name="service" id="svc-brakes" autocomplete="off">
-
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <label class="card service-card shadow-soft h-100" for="svc-basic">
-                <img class="card-img-top" src="assets/1.png" alt="Basic tune-up mapping image" />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 class="h6 mb-1">Basic Tune-Up</h3>
-                      <p class="text-secondary small mb-2">Gears + brakes adjustment, safety check.</p>
-                    </div>
-                    <span class="badge text-bg-primary">$79</span>
-                  </div>
-                  <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~60 min</div>
-                </div>
-              </label>
+          <!-- ABOUT -->
+          <div class="card shadow-soft mb-4">
+            <div class="card-header bg-white" id="about">
+              <div class="fw-semibold"><i class="bi bi-info-circle me-1"></i>About Alex Cycle Shop</div>
             </div>
-
-            <div class="col-12 col-md-6">
-              <label class="card service-card shadow-soft h-100" for="svc-full">
-                <img class="card-img-top" src="assets/2.png" alt="Full tune-up mapping image" />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 class="h6 mb-1">Full Tune-Up</h3>
-                      <p class="text-secondary small mb-2">Deep clean + drivetrain care + adjustments.</p>
-                    </div>
-                    <span class="badge text-bg-primary">$149</span>
-                  </div>
-                  <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~120 min</div>
-                </div>
-              </label>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="card service-card shadow-soft h-100" for="svc-flat">
-                <img class="card-img-top" src="assets/3.png" alt="Flat repair mapping image" />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 class="h6 mb-1">Flat Repair</h3>
-                      <p class="text-secondary small mb-2">Tube/patch + tire inspection.</p>
-                    </div>
-                    <span class="badge text-bg-primary">$25+</span>
-                  </div>
-                  <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30 min</div>
-                </div>
-              </label>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label class="card service-card shadow-soft h-100" for="svc-brakes">
-                <img class="card-img-top" src="assets/4.png" alt="Brake service mapping image" />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                      <h3 class="h6 mb-1">Brake Service</h3>
-                      <p class="text-secondary small mb-2">Adjust pads/cables, braking test.</p>
-                    </div>
-                    <span class="badge text-bg-primary">$35+</span>
-                  </div>
-                  <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30–45 min</div>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="mt-3 d-flex justify-content-end">
-            <a id="btnNextService" class="btn btn-primary disabled" href="#booking" aria-disabled="true">
-              Next: pick date & time <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-          </div>
-        </section>
-
-        <!-- BOOKING -->
-        <section id="booking">
-          <h2 class="h4 mb-2">Book your appointment</h2>
-          <p class="text-secondary mb-3">Mon–Sat only. Booking times are in 15-minute increments (10:00–18:00).</p>
-
-          <!-- Step 2 -->
-          <div class="card shadow-soft mb-3">
             <div class="card-body">
-              <h3 class="h5 mb-3">2) Choose date & time</h3>
+              <p class="text-secondary small mb-3">
+                Alex Cycle Shop started in 2016 as a tiny weekend repair booth near the Ottawa bike paths.
+                What began as “fix-one-bike, teach-one-skill” grew into a full service counter with upfront pricing.
+              </p>
 
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label class="form-label fw-semibold" for="date">
-                    <i class="bi bi-calendar3 me-1"></i>Date (Mon–Sat)
-                  </label>
-                  <input class="form-control" id="date" type="date" required />
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <label class="form-label fw-semibold" for="time">
-                    <i class="bi bi-clock me-1"></i>Appointment start time
-                  </label>
-                  <select class="form-select" id="time" required>
-                    <!-- options injected by JS (15-min steps) -->
-                  </select>
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label fw-semibold" for="pickup">
-                    <i class="bi bi-box-arrow-up-right me-1"></i>Pickup time (optional)
-                  </label>
-                  <select class="form-select" id="pickup">
-                    <!-- options injected by JS (blank + 15-min steps) -->
-                  </select>
-                  <div class="form-text">
-                    Earliest pickup time (start + service duration): <span id="earliestPickup">—</span>.
-                    Leave blank to auto-set to the earliest pickup.
-                  </div>
-                  <div id="pickupHint" class="small text-secondary mt-1"></div>
-                </div>
-              </div>
-
-              <div class="mt-3 d-flex justify-content-end">
-                <a id="btnNextSchedule" class="btn btn-primary disabled" href="#contact" aria-disabled="true">
-                  Next: your details <i class="bi bi-arrow-right ms-1"></i>
-                </a>
-              </div>
+              <div class="fw-semibold small mb-2">Core working ethics</div>
+              <ul class="list-unstyled small text-secondary mb-0">
+                <li class="mb-2"><i class="bi bi-tag me-2"></i><span class="fw-semibold text-dark">Transparent pricing:</span> approve changes before work starts.</li>
+                <li class="mb-2"><i class="bi bi-shield-check me-2"></i><span class="fw-semibold text-dark">Safety first:</span> brakes/wheels/drivetrain checks prioritized.</li>
+                <li><i class="bi bi-clock-history me-2"></i><span class="fw-semibold text-dark">Respect your time:</span> predictable turnaround.</li>
+              </ul>
             </div>
           </div>
-
-          <!-- Step 3 -->
-          <div id="contact" class="card shadow-soft">
-            <div class="card-body">
-              <h3 class="h5 mb-3">3) Your contact info</h3>
-
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label class="form-label fw-semibold" for="name">
-                    <i class="bi bi-person me-1"></i>Full name
-                  </label>
-                  <input class="form-control" id="name" type="text" placeholder="Alex Chen" required />
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <label class="form-label fw-semibold" for="phone">
-                    <i class="bi bi-telephone me-1"></i>Phone
-                  </label>
-                  <input class="form-control" id="phone" type="tel" placeholder="(613) 555-0123" required />
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label fw-semibold" for="email">
-                    <i class="bi bi-envelope me-1"></i>Email
-                  </label>
-                  <input class="form-control" id="email" type="email" placeholder="alex@example.com" required />
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label fw-semibold" for="notes">
-                    <i class="bi bi-chat-left-text me-1"></i>Additional comments (optional)
-                  </label>
-                  <textarea class="form-control" id="notes" rows="3"
-                            placeholder="Bike model, issue details, etc."></textarea>
-                </div>
-              </div>
-
-              <div id="formAlert" class="alert alert-warning mt-3 d-none" role="alert"></div>
-
-              <div class="mt-4">
-                <button id="confirmBtn" class="btn btn-primary btn-lg w-100 shadow-soft" type="button" disabled>
-                  <i class="bi bi-check2-circle me-2"></i>Confirm booking
-                </button>
-                <p class="small text-secondary mt-2 mb-0">
-                  Prototype: stores bookings in your browser (localStorage). Admin view below shows reserved appointments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- RIGHT -->
-      <div class="col-12 col-lg-4" id="sidebarCol">
-        <div id="sidebar" class="vstack gap-4">
 
           <!-- EXPERTS -->
-          <div class="card shadow-soft">
-            <!-- id on header so navbar jump lands on the title bar -->
+          <div class="card shadow-soft mb-4">
             <div class="card-header bg-white" id="experts">
               <div class="fw-semibold"><i class="bi bi-people me-1"></i>Our experts</div>
               <div class="text-secondary small">Meet the mechanics who’ll work on your bike.</div>
@@ -327,8 +147,7 @@
 
             <div class="card-body">
               <div class="d-flex gap-3 mb-3">
-                <img class="rounded-circle" width="56" height="56"
-                    src="https://placehold.co/112x112?text=A" alt="Mechanic avatar" />
+                <img class="rounded-circle" width="56" height="56" src="https://placehold.co/112x112?text=A" alt="Mechanic avatar" />
                 <div>
                   <div class="fw-semibold">Alex Nguyen</div>
                   <div class="text-secondary small">Lead Mechanic • Drivetrain & tune-ups</div>
@@ -339,8 +158,7 @@
               <hr class="my-3" />
 
               <div class="d-flex gap-3">
-                <img class="rounded-circle" width="56" height="56"
-                    src="https://placehold.co/112x112?text=M" alt="Mechanic avatar" />
+                <img class="rounded-circle" width="56" height="56" src="https://placehold.co/112x112?text=M" alt="Mechanic avatar" />
                 <div>
                   <div class="fw-semibold">Maya Patel</div>
                   <div class="text-secondary small">Service Specialist • Brakes & wheels</div>
@@ -350,82 +168,244 @@
             </div>
           </div>
 
-          <!-- ABOUT -->
-          <div class="card shadow-soft">
-            <!-- id on header so navbar jump lands on the title bar -->
-            <div class="card-header bg-white" id="about">
-              <div class="fw-semibold"><i class="bi bi-info-circle me-1"></i>About Alex Cycle Shop</div>
-            </div>
-
-            <div class="card-body">
-              <p class="text-secondary small mb-3">
-                Alex Cycle Shop started in 2016 as a tiny weekend repair booth near the Ottawa bike paths.
-                What began as “fix-one-bike, teach-one-skill” grew into a full service counter as local riders
-                asked for trustworthy diagnostics and upfront pricing.
-              </p>
-
-              <div class="fw-semibold small mb-2">Core working ethics</div>
-              <ul class="list-unstyled small text-secondary mb-0">
-                <li class="mb-2">
-                  <i class="bi bi-tag me-2"></i><span class="fw-semibold text-dark">Transparent pricing:</span>
-                  no surprise add-ons—changes are approved before work starts.
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-shield-check me-2"></i><span class="fw-semibold text-dark">Safety first:</span>
-                  brakes, wheels, and drivetrain checks are prioritized on every service.
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-clock-history me-2"></i><span class="fw-semibold text-dark">Respect your time:</span>
-                  appointments are scheduled to avoid overlaps and keep turnaround predictable.
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-recycle me-2"></i><span class="fw-semibold text-dark">Sustainable repairs:</span>
-                  repair before replace whenever it’s safe and cost-effective.
-                </li>
-                <li>
-                  <i class="bi bi-people me-2"></i><span class="fw-semibold text-dark">Welcoming service:</span>
-                  clear explanations for beginners and experienced riders alike.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- SUMMARY (put id on header so navbar jump shows title) -->
-          <div id="summaryCard" class="card shadow-soft border border-primary">
-            <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between" id="summary">
-              <div class="fw-semibold"><i class="bi bi-receipt me-1"></i>Your booking summary</div>
-              <span class="badge text-bg-light text-primary">Current</span>
-            </div>
-
-            <div class="card-body">
-              <div class="mb-2 fw-semibold">Service</div>
-              <div class="text-secondary small mb-3" id="summaryServiceLine">
-                <i class="bi bi-dash me-1"></i>Select a service above
+          <!-- SUMMARY (sticky on desktop via .summary-fixed-lg in style.css) -->
+          <div class="summary-fixed-lg">
+            <div class="card shadow-soft border border-primary">
+              <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between" id="summary">
+                <div class="fw-semibold"><i class="bi bi-receipt me-1"></i>Your booking summary</div>
+                <span class="badge text-bg-light text-primary">Live</span>
               </div>
 
-              <div class="mb-2 fw-semibold">Schedule</div>
-              <div class="text-secondary small">
-                <div id="summaryDateLine"><i class="bi bi-dash me-1"></i>Select a date</div>
-                <div id="summaryTimeLine"><i class="bi bi-dash me-1"></i>Select a start time</div>
-                <div id="summaryPickupLine"><i class="bi bi-dash me-1"></i>Pickup time (optional)</div>
-              </div>
+              <div class="card-body">
+                <div class="mb-2 fw-semibold">Service</div>
+                <div class="text-secondary small mb-3" id="summaryServiceLine">
+                  <i class="bi bi-dash me-1"></i>Select a service below
+                </div>
 
-              <hr class="my-3" />
-              <div class="small text-secondary">
-                <i class="bi bi-shield-check me-1"></i>Transparent pricing • No add-ons without approval
+                <div class="mb-2 fw-semibold">Schedule</div>
+                <div class="text-secondary small">
+                  <div id="summaryDateLine"><i class="bi bi-dash me-1"></i>Selected date will appear here</div>
+                  <div id="summaryTimeLine"><i class="bi bi-dash me-1"></i>Selected start time will appear here</div>
+                  <div id="summaryPickupLine"><i class="bi bi-dash me-1"></i>Pickup time (auto if blank) will appear here</div>
+                </div>
+
+                <hr class="my-3" />
+                <div class="small text-secondary">
+                  <i class="bi bi-shield-check me-1"></i>Transparent pricing • No add-ons without approval
+                </div>
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- spacer keeps the column height stable when sidebar becomes fixed -->
-        <div id="sidebarSpacer" aria-hidden="true"></div>
+        <!-- LEFT (Services + Booking) -->
+        <div class="col-12 col-lg-8 order-2 order-lg-1">
+
+          <!-- SERVICES -->
+          <section id="services" class="section-pad">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h2 class="h4 mb-0">Services & Prices</h2>
+              <span class="badge text-bg-secondary"><i class="bi bi-eye me-1"></i>Prices upfront</span>
+            </div>
+            <p class="text-secondary mb-3">Tap a service card to select it. The card will highlight when selected.</p>
+
+            <div class="row g-3">
+
+              <div class="col-12 col-md-6">
+                <input class="btn-check" type="radio" name="service" id="svc-basic" autocomplete="off" required>
+                <label class="card shadow-soft h-100 service-card service-option position-relative" for="svc-basic">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <span class="badge text-bg-success selected-badge"><i class="bi bi-check-lg me-1"></i>Selected</span>
+                  </div>
+                  <img class="card-img-top" src="assets/1.png" alt="Basic tune-up mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Basic Tune-Up</h3>
+                        <p class="text-secondary small mb-2">Gears + brakes adjustment, safety check.</p>
+                        <div class="small text-secondary"><i class="bi bi-hand-index-thumb me-1"></i>Tap to select</div>
+                      </div>
+                      <span class="badge text-bg-primary">$79</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~60 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input class="btn-check" type="radio" name="service" id="svc-full" autocomplete="off">
+                <label class="card shadow-soft h-100 service-card service-option position-relative" for="svc-full">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <span class="badge text-bg-success selected-badge"><i class="bi bi-check-lg me-1"></i>Selected</span>
+                  </div>
+                  <img class="card-img-top" src="assets/2.png" alt="Full tune-up mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Full Tune-Up</h3>
+                        <p class="text-secondary small mb-2">Deep clean + drivetrain care + adjustments.</p>
+                        <div class="small text-secondary"><i class="bi bi-hand-index-thumb me-1"></i>Tap to select</div>
+                      </div>
+                      <span class="badge text-bg-primary">$149</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~120 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input class="btn-check" type="radio" name="service" id="svc-flat" autocomplete="off">
+                <label class="card shadow-soft h-100 service-card service-option position-relative" for="svc-flat">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <span class="badge text-bg-success selected-badge"><i class="bi bi-check-lg me-1"></i>Selected</span>
+                  </div>
+                  <img class="card-img-top" src="assets/3.png" alt="Flat repair mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Flat Repair</h3>
+                        <p class="text-secondary small mb-2">Tube/patch + tire inspection.</p>
+                        <div class="small text-secondary"><i class="bi bi-hand-index-thumb me-1"></i>Tap to select</div>
+                      </div>
+                      <span class="badge text-bg-primary">$25+</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30 min</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <input class="btn-check" type="radio" name="service" id="svc-brakes" autocomplete="off">
+                <label class="card shadow-soft h-100 service-card service-option position-relative" for="svc-brakes">
+                  <div class="position-absolute top-0 end-0 p-2">
+                    <span class="badge text-bg-success selected-badge"><i class="bi bi-check-lg me-1"></i>Selected</span>
+                  </div>
+                  <img class="card-img-top" src="assets/4.png" alt="Brake service mapping image" />
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h3 class="h6 mb-1">Brake Service</h3>
+                        <p class="text-secondary small mb-2">Adjust pads/cables, braking test.</p>
+                        <div class="small text-secondary"><i class="bi bi-hand-index-thumb me-1"></i>Tap to select</div>
+                      </div>
+                      <span class="badge text-bg-primary">$35+</span>
+                    </div>
+                    <div class="small text-secondary"><i class="bi bi-hourglass-split me-1"></i>~30–45 min</div>
+                  </div>
+                </label>
+              </div>
+
+            </div>
+
+            <div class="mt-3 d-flex justify-content-end">
+              <a id="btnNextService" class="btn btn-primary disabled" href="#booking" aria-disabled="true">
+                Next: pick date & time <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </section>
+
+          <!-- BOOKING -->
+          <section id="booking" class="section-pad">
+            <h2 class="h4 mb-2">Book your appointment</h2>
+            <p class="text-secondary mb-2">Mon–Sat only. Booking times are in 15-minute increments (10:00–18:00).</p>
+
+            <div class="small text-secondary mb-3" id="dateHelp">
+              <i class="bi bi-info-circle me-1"></i>Choose a future date. Sunday is not available.
+            </div>
+
+            <div class="card shadow-soft mb-3">
+              <div class="card-body">
+                <h3 class="h5 mb-3">2) Choose date & time</h3>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="date">
+                      <i class="bi bi-calendar3 me-1"></i>Date (Mon–Sat)
+                    </label>
+                    <input class="form-control" id="date" type="date" required />
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="time">
+                      <i class="bi bi-clock me-1"></i>Appointment start time
+                    </label>
+                    <select class="form-select" id="time" required></select>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="pickup">
+                      <i class="bi bi-box-arrow-up-right me-1"></i>Pickup time (optional)
+                    </label>
+                    <select class="form-select" id="pickup"></select>
+                    <div class="form-text">
+                      Earliest pickup time (start + service duration): <span id="earliestPickup">—</span>.
+                      Leave blank to auto-set to the earliest pickup.
+                    </div>
+                    <div id="pickupHint" class="small text-secondary mt-1"></div>
+                  </div>
+                </div>
+
+                <div class="mt-3 d-flex justify-content-end">
+                  <a id="btnNextSchedule" class="btn btn-primary disabled" href="#contact" aria-disabled="true">
+                    Next: your details <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="contact" class="card shadow-soft">
+              <div class="card-body">
+                <h3 class="h5 mb-3">3) Your contact info</h3>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="name">
+                      <i class="bi bi-person me-1"></i>Full name
+                    </label>
+                    <input class="form-control" id="name" type="text" placeholder="Alex Chen" required />
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="form-label fw-semibold" for="phone">
+                      <i class="bi bi-telephone me-1"></i>Phone
+                    </label>
+                    <input class="form-control" id="phone" type="tel" placeholder="(613) 555-0123" required />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="email">
+                      <i class="bi bi-envelope me-1"></i>Email
+                    </label>
+                    <input class="form-control" id="email" type="email" placeholder="alex@example.com" required />
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label fw-semibold" for="notes">
+                      <i class="bi bi-chat-left-text me-1"></i>Additional comments (optional)
+                    </label>
+                    <textarea class="form-control" id="notes" rows="3" placeholder="Bike model, issue details, etc."></textarea>
+                  </div>
+                </div>
+
+                <div id="formAlert" class="alert alert-warning mt-3 d-none" role="alert"></div>
+
+                <div class="mt-4">
+                  <button id="confirmBtn" class="btn btn-primary btn-lg w-100 shadow-soft" type="button" disabled>
+                    <i class="bi bi-check2-circle me-2"></i>Confirm booking
+                  </button>
+                  <p class="small text-secondary mt-2 mb-0">
+                    Prototype: stores bookings in your browser (localStorage). Admin view below shows reserved appointments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
       </div>
 
-
-
-      <!-- Row 2: ADMIN (full width, avoids empty sidebar) -->
+      <!-- ADMIN (full width) -->
       <section id="admin" class="mt-5">
         <div class="d-flex align-items-center justify-content-between mb-2">
           <h2 class="h4 mb-0">Admin: Reserved appointments</h2>
@@ -462,24 +442,23 @@
         </div>
       </section>
 
-    <!-- Footer -->
-    <footer class="mt-5 pt-4 border-top text-secondary small">
-      <div class="row g-2">
-        <div class="col-12 col-md">
-          <div class="fw-semibold text-dark">Alex Cycle Shop</div>
-          123 Main St, Ottawa, ON • Mon–Sat 10:00–18:00
+      <!-- Footer -->
+      <footer class="mt-5 pt-4 border-top text-secondary small">
+        <div class="row g-2">
+          <div class="col-12 col-md">
+            <div class="fw-semibold text-dark">Alex Cycle Shop</div>
+            123 Main St, Ottawa, ON • Mon–Sat 10:00–18:00
+          </div>
+          <div class="col-12 col-md-auto">
+            <i class="bi bi-telephone me-1"></i>(613) 555-0123
+            <span class="mx-2">•</span>
+            <i class="bi bi-envelope me-1"></i>alex@cycle.shop
+          </div>
         </div>
-        <div class="col-12 col-md-auto">
-          <i class="bi bi-telephone me-1"></i>(613) 555-0123
-          <span class="mx-2">•</span>
-          <i class="bi bi-envelope me-1"></i>alex@cycle.shop
-        </div>
-      </div>
-    </footer>
+      </footer>
 
-  </div>
-</main>
-
+    </div>
+  </main>
 
   <!-- MODAL -->
   <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
@@ -520,15 +499,10 @@
         "svc-brakes": { name: "Brake Service", price: "$35+", durationLabel: "~30–45 min", durationMinutes: 45 }
       };
 
-      const KEY = "acs_bookings_v3";
-
-      // Hours constraint: Mon–Sat 10:00–18:00
-      const OPEN_MIN = 10 * 60;          // 600
-      const CLOSE_MIN = 18 * 60;         // 1080
-      const OPEN_STR = "10:00";
-      const CLOSE_STR = "18:00";
-      const STEP_MIN = 15;               // 15-minute increments
-      const STEP_SECONDS = STEP_MIN * 60; // for <input type="time" step="...">
+      const KEY = "acs_bookings_v4";
+      const OPEN_MIN = 10 * 60;
+      const CLOSE_MIN = 18 * 60;
+      const STEP_MIN = 15;
 
       const $ = (id) => document.getElementById(id);
 
@@ -538,6 +512,7 @@
       const pickupEl = $("pickup");
       const earliestPickupEl = $("earliestPickup");
       const pickupHintEl = $("pickupHint");
+      const dateHelp = $("dateHelp");
 
       const nameEl = $("name");
       const phoneEl = $("phone");
@@ -563,18 +538,20 @@
       const modalPickup = $("modalPickup");
       const modalName = $("modalName");
 
-      // Ensure the browser pickers also use 15-min step + hour bounds
-      timeEl.step = String(STEP_SECONDS);
-      pickupEl.step = String(STEP_SECONDS);
-      timeEl.min = OPEN_STR;
-      timeEl.max = CLOSE_STR;
-      pickupEl.min = OPEN_STR;
-      pickupEl.max = CLOSE_STR;
+      // No past dates
+      const today = new Date();
+      dateEl.min = today.toISOString().slice(0, 10);
+
+      function isBusinessDayStr(yyyyMmDd) {
+        if (!yyyyMmDd) return false;
+        const d = new Date(yyyyMmDd + "T00:00:00");
+        const day = d.getDay(); // 0=Sun ... 6=Sat
+        return day >= 1 && day <= 6; // Mon–Sat
+      }
 
       function parseTimeToMinutes(t) {
         if (!t || !/^\d{2}:\d{2}$/.test(t)) return null;
         const [hh, mm] = t.split(":").map(Number);
-        if (hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
         return hh * 60 + mm;
       }
 
@@ -584,22 +561,21 @@
         return String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
       }
 
-      function is15MinStep(t) {
-        const m = parseTimeToMinutes(t);
-        if (m === null) return false;
-        return (m % STEP_MIN) === 0;
-      }
-
-      function isWithinHours(mins) {
-        return mins !== null && mins >= OPEN_MIN && mins <= CLOSE_MIN;
-      }
-
-      function isBusinessDay() {
-        // dateEl.value is YYYY-MM-DD. Use local midnight.
-        if (!dateEl.value) return false;
-        const d = new Date(dateEl.value + "T00:00:00");
-        const day = d.getDay(); // 0=Sun ... 6=Sat
-        return day >= 1 && day <= 6; // Mon–Sat
+      function buildTimeOptions(selectEl, startMin, endMin, stepMin, includeBlank, blankLabel) {
+        selectEl.innerHTML = "";
+        if (includeBlank) {
+          const opt = document.createElement("option");
+          opt.value = "";
+          opt.textContent = blankLabel || "Select";
+          selectEl.appendChild(opt);
+        }
+        for (let m = startMin; m <= endMin; m += stepMin) {
+          const t = minutesToTimeStr(m);
+          const opt = document.createElement("option");
+          opt.value = t;
+          opt.textContent = t;
+          selectEl.appendChild(opt);
+        }
       }
 
       function getSelectedService() {
@@ -608,28 +584,17 @@
         return { id: sel.id, ...SERVICE_MAP[sel.id] };
       }
 
+      function isWithinHours(mins) {
+        return mins !== null && mins >= OPEN_MIN && mins <= CLOSE_MIN;
+      }
+
       function isDateValid() {
-        return dateEl.value && dateEl.checkValidity() && isBusinessDay();
+        return dateEl.value && dateEl.checkValidity() && isBusinessDayStr(dateEl.value);
       }
 
       function isTimeValid() {
         const m = parseTimeToMinutes(timeEl.value);
-        return timeEl.checkValidity() && isWithinHours(m) && is15MinStep(timeEl.value);
-      }
-
-      function isPickupValidOrEmpty(earliestPickupMin) {
-        if (!pickupEl.value) return true;
-        const p = parseTimeToMinutes(pickupEl.value);
-        return pickupEl.checkValidity()
-          && isWithinHours(p)
-          && is15MinStep(pickupEl.value)
-          && (earliestPickupMin !== null)
-          && (p >= earliestPickupMin)
-          && (p <= CLOSE_MIN);
-      }
-
-      function isContactValid() {
-        return nameEl.checkValidity() && phoneEl.checkValidity() && emailEl.checkValidity();
+        return timeEl.checkValidity() && isWithinHours(m);
       }
 
       function setEnabledAnchor(a, enabled) {
@@ -647,21 +612,32 @@
         formAlert.textContent = "";
       }
 
+      function updateDateHelp() {
+        if (!dateHelp) return;
+        if (dateEl.value && !isBusinessDayStr(dateEl.value)) {
+          dateHelp.classList.remove("text-secondary");
+          dateHelp.classList.add("text-danger");
+          dateHelp.innerHTML = '<i class="bi bi-exclamation-triangle me-1"></i>Sunday is not available. Please choose Mon–Sat.';
+        } else {
+          dateHelp.classList.remove("text-danger");
+          dateHelp.classList.add("text-secondary");
+          dateHelp.innerHTML = '<i class="bi bi-info-circle me-1"></i>Choose a future date. Sunday is not available.';
+        }
+      }
+
+      function rebuildStartTimes() {
+        const svc = getSelectedService();
+        const maxStart = svc ? (CLOSE_MIN - svc.durationMinutes) : CLOSE_MIN;
+        buildTimeOptions(timeEl, OPEN_MIN, maxStart, STEP_MIN, true, "Select a time");
+      }
+
       function computeEarliestPickupMinutes() {
         const svc = getSelectedService();
         const startMin = parseTimeToMinutes(timeEl.value);
         if (!svc || startMin === null) return null;
         const endMin = startMin + svc.durationMinutes;
-
-        // Enforce business hours: service must finish by 18:00
-        if (startMin < OPEN_MIN) return null;
         if (endMin > CLOSE_MIN) return null;
-
         return endMin;
-      }
-
-      function overlaps(aStart, aEnd, bStart, bEnd) {
-        return aStart < bEnd && bStart < aEnd;
       }
 
       function updateEarliestPickupUI() {
@@ -675,37 +651,41 @@
 
         const earliestStr = minutesToTimeStr(earliest);
         earliestPickupEl.textContent = earliestStr;
-
-        // pickup options: blank (auto) + 15-min times from earliest -> close
         buildTimeOptions(pickupEl, earliest, CLOSE_MIN, STEP_MIN, true, `Auto (${earliestStr})`);
         pickupHintEl.textContent = "Pickup must be at/after earliest pickup and within 10:00–18:00 (15-min steps).";
       }
 
+      function isPickupValidOrEmpty(earliestPickupMin) {
+        if (!pickupEl.value) return true;
+        const p = parseTimeToMinutes(pickupEl.value);
+        return isWithinHours(p) && earliestPickupMin !== null && p >= earliestPickupMin && p <= CLOSE_MIN;
+      }
+
+      function isContactValid() {
+        return nameEl.checkValidity() && phoneEl.checkValidity() && emailEl.checkValidity();
+      }
+
       function updateSummary() {
         const svc = getSelectedService();
-        if (svc) {
-          summaryServiceLine.innerHTML =
-            `<i class="bi bi-check2 me-1"></i>${svc.name} — ${svc.price} <span class="text-secondary">(${svc.durationLabel})</span>`;
-        } else {
-          summaryServiceLine.innerHTML = `<i class="bi bi-dash me-1"></i>Select a service above`;
-        }
+        summaryServiceLine.innerHTML = svc
+          ? `<i class="bi bi-check2 me-1"></i>${svc.name} — ${svc.price} <span class="text-secondary">(${svc.durationLabel})</span>`
+          : `<i class="bi bi-dash me-1"></i>Select a service below`;
 
         summaryDateLine.innerHTML = isDateValid()
           ? `<i class="bi bi-calendar3 me-1"></i>${dateEl.value}`
-          : `<i class="bi bi-dash me-1"></i>Select a date (Mon–Sat)`;
+          : `<i class="bi bi-dash me-1"></i>Selected date will appear here`;
 
         summaryTimeLine.innerHTML = isTimeValid()
           ? `<i class="bi bi-clock me-1"></i>${timeEl.value}`
-          : `<i class="bi bi-dash me-1"></i>Select a start time (10:00–18:00)`;
+          : `<i class="bi bi-dash me-1"></i>Selected start time will appear here`;
 
         const earliest = computeEarliestPickupMinutes();
         if (pickupEl.value) {
           summaryPickupLine.innerHTML = `<i class="bi bi-box-arrow-up-right me-1"></i>${pickupEl.value}`;
         } else if (earliest !== null) {
-          summaryPickupLine.innerHTML =
-            `<i class="bi bi-box-arrow-up-right me-1"></i>(auto) ${minutesToTimeStr(earliest)}`;
+          summaryPickupLine.innerHTML = `<i class="bi bi-box-arrow-up-right me-1"></i>(auto) ${minutesToTimeStr(earliest)}`;
         } else {
-          summaryPickupLine.innerHTML = `<i class="bi bi-dash me-1"></i>Pickup time (optional)`;
+          summaryPickupLine.innerHTML = `<i class="bi bi-dash me-1"></i>Pickup time (auto if blank) will appear here`;
         }
       }
 
@@ -714,6 +694,8 @@
 
         const hasSvc = !!getSelectedService();
         setEnabledAnchor(btnNextService, hasSvc);
+
+        updateDateHelp();
 
         const hasSchedule = isDateValid() && isTimeValid();
         setEnabledAnchor(btnNextSchedule, hasSchedule);
@@ -772,6 +754,10 @@
         }
       }
 
+      function overlaps(aStart, aEnd, bStart, bEnd) {
+        return aStart < bEnd && bStart < aEnd;
+      }
+
       function wouldConflict(newDate, newStartMin, newEndMin) {
         const bookings = loadBookings();
         for (const b of bookings) {
@@ -788,43 +774,36 @@
         const svc = getSelectedService();
         if (!svc) return { error: "Please select a service." };
 
-        if (!isDateValid()) return { error: "Please select a valid date (Mon–Sat only)." };
-
-        if (!isTimeValid()) {
-          return { error: "Start time must be within 10:00–18:00 and on a 15-minute step." };
+        // If Sunday picked, clear it (prevents Sunday usage)
+        if (dateEl.value && !isBusinessDayStr(dateEl.value)) {
+          dateEl.value = "";
+          updateDateHelp();
+          return { error: "Sunday is not available. Please choose Mon–Sat." };
         }
+
+        if (!isDateValid()) return { error: "Please select a valid future date (Mon–Sat only)." };
+        if (!isTimeValid()) return { error: "Please select a start time within 10:00–18:00." };
 
         const startMin = parseTimeToMinutes(timeEl.value);
         const endMin = startMin + svc.durationMinutes;
-
-        // Must finish by closing time (18:00)
-        if (endMin > CLOSE_MIN) {
-          return { error: "This service would end after 18:00. Please choose an earlier start time." };
-        }
+        if (endMin > CLOSE_MIN) return { error: "This service would end after 18:00. Please choose an earlier time." };
 
         const earliestPickupMin = endMin;
         const earliestPickupStr = minutesToTimeStr(earliestPickupMin);
 
         let pickupStr = pickupEl.value;
-        if (!pickupStr) {
-          pickupStr = earliestPickupStr; // default: start + duration
-        } else {
-          if (!is15MinStep(pickupStr)) return { error: "Pickup time must be in 15-minute steps." };
-          const pickupMin = parseTimeToMinutes(pickupStr);
-          if (!isWithinHours(pickupMin)) return { error: "Pickup time must be within 10:00–18:00." };
-          if (pickupMin < earliestPickupMin) {
-            return { error: `Pickup must be at/after earliest pickup (${earliestPickupStr}).` };
-          }
+        if (!pickupStr) pickupStr = earliestPickupStr;
+
+        const pickupMin = parseTimeToMinutes(pickupStr);
+        if (pickupMin === null || pickupMin < earliestPickupMin) {
+          return { error: `Pickup must be at/after earliest pickup (${earliestPickupStr}).` };
         }
 
         if (!isContactValid()) return { error: "Please complete your contact info (name/phone/email)." };
 
-        // Only one customer at a time (no overlapping service interval)
         const conflict = wouldConflict(dateEl.value, startMin, endMin);
         if (conflict) {
-          return {
-            error: `Time conflict: another appointment overlaps (${conflict.startTime}–${conflict.endTime}). Please choose a different time.`
-          };
+          return { error: `Time conflict: another appointment overlaps (${conflict.startTime}–${conflict.endTime}).` };
         }
 
         return {
@@ -849,41 +828,22 @@
         };
       }
 
-      function buildTimeOptions(selectEl, startMin, endMin, stepMin, includeBlank, blankLabel) {
-        selectEl.innerHTML = "";
-        if (includeBlank) {
-          const opt = document.createElement("option");
-          opt.value = "";
-          opt.textContent = blankLabel || "Auto (earliest pickup)";
-          selectEl.appendChild(opt);
-        }
-        for (let m = startMin; m <= endMin; m += stepMin) {
-          const t = minutesToTimeStr(m);
-          const opt = document.createElement("option");
-          opt.value = t;
-          opt.textContent = t;
-          selectEl.appendChild(opt);
-        }
-      }
-
-      function rebuildStartTimes() {
-        const svc = getSelectedService();
-        const maxStart = svc ? (CLOSE_MIN - svc.durationMinutes) : CLOSE_MIN;
-        buildTimeOptions(timeEl, OPEN_MIN, maxStart, STEP_MIN, false);
-      }
-
-
       // events
       radios.forEach(r => r.addEventListener("change", function () {
         rebuildStartTimes();
         updateControls();
       }));
 
-      [dateEl, timeEl, pickupEl, nameEl, phoneEl, emailEl, notesEl].forEach(el => {
-        el.addEventListener(el.tagName === "SELECT" ? "change" : "input", updateControls);
+      dateEl.addEventListener("change", function () {
+        // hard block Sundays: clear selection immediately
+        if (dateEl.value && !isBusinessDayStr(dateEl.value)) {
+          dateEl.value = "";
+        }
+        updateControls();
       });
 
-
+      [timeEl, pickupEl].forEach(el => el.addEventListener("change", updateControls));
+      [nameEl, phoneEl, emailEl, notesEl].forEach(el => el.addEventListener("input", updateControls));
 
       confirmBtn.addEventListener("click", function () {
         clearAlert();
@@ -897,7 +857,6 @@
         saveBookings(bookings);
         renderBookings();
 
-        // modal
         modalService.textContent = `${res.booking.serviceName} (${res.booking.servicePrice})`;
         modalDate.textContent = res.booking.date;
         modalTime.textContent = res.booking.startTime;
@@ -924,8 +883,7 @@
       // init
       renderBookings();
       rebuildStartTimes();
-      updateEarliestPickupUI();
-      updateControls()
+      updateControls();
     })();
   </script>
 </body>
